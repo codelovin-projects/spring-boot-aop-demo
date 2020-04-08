@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
@@ -17,8 +16,8 @@ public class ExecutionTimeAspect {
     private Logger logger = Logger.getLogger(ExecutionTimeAspect.class.getName());
  
     @SuppressWarnings("rawtypes")
-	@Around("execution(* com.codelovin.spring.aopdemo..*(..))")
-    //@Around("execution(* com.codelovin.spring.aopdemo.CarService.*(..))")
+	//@Around("execution(* com.codelovin.spring.aopdemo..*(..))")
+    @Around("execution(* com.codelovin.spring.aopdemo.CarService.*(..))")
     //@Around("execution(* com.codelovin.spring.aopdemo.CarRepository.*(..))")
     //@Around("execution(* com.codelovin.spring.aopdemo.CarController.*(..))")
     public Object findExecutionTimeOfAllMethods(ProceedingJoinPoint proceedingJoinPoint) throws Throwable 
